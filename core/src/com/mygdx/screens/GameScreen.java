@@ -18,7 +18,7 @@ public class GameScreen implements Screen {
 
   @Override
   public void show() {
-    Gdx.app.log("GameScreen", "show Called");
+    Gdx.app.log("GameScreen", "Show Called");
 
   }
 
@@ -33,7 +33,7 @@ public class GameScreen implements Screen {
 
   @Override
   public void resize(int width, int height) {
-    Gdx.app.log("GameScreen", "resize Called");
+    Gdx.app.log("GameScreen", "Resize Called");
 
   }
 
