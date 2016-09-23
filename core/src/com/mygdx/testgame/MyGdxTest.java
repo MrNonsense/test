@@ -1,4 +1,4 @@
-package com.mygdx.test;
+package com.mygdx.testgame;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;

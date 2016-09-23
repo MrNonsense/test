@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.mygdx.gameworld.GameRenderer;
 import com.mygdx.gameworld.GameWorld;
+import com.mygdx.helpers.inputHandler;
 
 public class GameScreen implements Screen {
 
@@ -12,8 +13,16 @@ public class GameScreen implements Screen {
 
   public GameScreen() {
     Gdx.app.log("GameScreen", "Attached");
-    world = new GameWorld();
+    float screenWidth = Gdx.graphics.getWidth();
+    float screenHeight = Gdx.graphics.getHeight();
+    float gameWidth = 136;
+    float gameHeight = screenHeight / (screenWidth / gameWidth);
+
+    int midPointY = (int)(gameHeight / 2);
+    world = new GameWorld(midPointY);
     renderer = new GameRenderer(world);
+
+    Gdx.input.setInputProcessor(new inputHandler(world.getBird()));
   }
 
   @Override

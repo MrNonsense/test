@@ -2,8 +2,8 @@ package com.mygdx.test.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.mygdx.test.MyGdxTest;
-import com.mygdx.test.myGame;
+import com.mygdx.testgame.MyGdxTest;
+import com.mygdx.testgame.myGame;
 
 public class DesktopLauncher {
   public static void main(String[] arg) {

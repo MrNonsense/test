@@ -27,16 +27,16 @@ public class GameRenderer {
     // Fills the screen with the selected color
     Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-    //draw rectangle
-    shapeRenderer.begin(ShapeType.Filled);
-    shapeRenderer.setColor(87 / 255.0f, 109 / 255.0f, 120 / 255.0f, 1);
-    shapeRenderer.rect(world.getRect().x, world.getRect().y, world.getRect().width, world.getRect().height);
-    shapeRenderer.end();
-    //draw rectangle outline
-    shapeRenderer.begin(ShapeType.Line);
-    shapeRenderer.setColor(255 / 255.0f, 109 / 255.0f, 120 / 255.0f, 1);
-    shapeRenderer.rect(world.getRect().x, world.getRect().y, world.getRect().width, world.getRect().height);
-    shapeRenderer.end();
+    //    //draw rectangle
+    //    shapeRenderer.begin(ShapeType.Filled);
+    //    shapeRenderer.setColor(87 / 255.0f, 109 / 255.0f, 120 / 255.0f, 1);
+    //    shapeRenderer.rect(world.getRect().x, world.getRect().y, world.getRect().width, world.getRect().height);
+    //    shapeRenderer.end();
+    //    //draw rectangle outline
+    //    shapeRenderer.begin(ShapeType.Line);
+    //    shapeRenderer.setColor(255 / 255.0f, 109 / 255.0f, 120 / 255.0f, 1);
+    //    shapeRenderer.rect(world.getRect().x, world.getRect().y, world.getRect().width, world.getRect().height);
+    //    shapeRenderer.end();
   }
 
 }
