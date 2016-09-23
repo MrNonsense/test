@@ -28,7 +28,7 @@ public class Bird {
       velocity.y = 200;
     }
 
-    position.add(velocity).cpy().scl(delta);
+    position.add(velocity.cpy().scl(delta));
   }
 
   public void onClick() {

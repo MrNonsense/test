@@ -3,11 +3,11 @@ package com.mygdx.helpers;
 import com.badlogic.gdx.InputProcessor;
 import com.mygdx.gameobjects.Bird;
 
-public class inputHandler implements InputProcessor {
+public class InputHandler implements InputProcessor {
 
   private Bird bird;
 
-  public inputHandler(Bird bird_p) {
+  public InputHandler(Bird bird_p) {
     this.bird = bird_p;
   }
 
