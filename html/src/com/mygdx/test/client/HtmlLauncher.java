@@ -3,7 +3,7 @@ package com.mygdx.test.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.mygdx.test.MyGdxTest;
+import com.mygdx.testgame.MyGdxTest;
 
 public class HtmlLauncher extends GwtApplication {
 
