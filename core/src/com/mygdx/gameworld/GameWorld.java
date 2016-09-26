@@ -15,7 +15,7 @@ public class GameWorld {
   }
 
   public void update(float delta) {
-    Gdx.app.log("GameWorld", "update");
+    //    Gdx.app.log("GameWorld", "update");
     bird.update(delta);
     //    rect.x++;
     //    if (rect.x > 137) {

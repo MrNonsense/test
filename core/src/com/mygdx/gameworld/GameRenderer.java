@@ -3,7 +3,9 @@ package com.mygdx.gameworld;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.mygdx.gameobjects.Bird;
@@ -18,6 +20,14 @@ public class GameRenderer {
   private SpriteBatch        batcher;
   private int                gameHeight;
   private int                midPointY;
+  //Game Objects
+  private Bird               bird;
+
+  //Game Assets
+  private TextureRegion      bg, grass;
+  private Animation          birdAnimation;
+  private TextureRegion      birdMid, birdDown, birdUp;
+  private TextureRegion      skullUp, skullDown, bar;
 
   public GameRenderer(GameWorld world_p, int gameHeight_p, int midPointY_p) {
     world = world_p;
@@ -32,12 +42,29 @@ public class GameRenderer {
     batcher.setProjectionMatrix(cam.combined);
     shapeRenderer = new ShapeRenderer();
     shapeRenderer.setProjectionMatrix(cam.combined);
+
+    initGameObjects();
+    initAssets();
+  }
+
+  private void initGameObjects() {
+    bird = world.getBird();
+  }
+
+  private void initAssets() {
+    bg = AssetLoader.bg;
+    grass = AssetLoader.grass;
+    birdAnimation = AssetLoader.birdAnimation;
+    birdMid = AssetLoader.bird;
+    birdDown = AssetLoader.birdDown;
+    birdUp = AssetLoader.birdUp;
+    skullUp = AssetLoader.skullUp;
+    skullDown = AssetLoader.skullDown;
+    bar = AssetLoader.bar;
   }
 
   public void render(float runTime) {
-    Gdx.app.log("GameRenderer", "render");
-
-    Bird bird = world.getBird();
+//    Gdx.app.log("GameRenderer", "render");
 
     // Sets a Color to Fill the Screen with (RGB = 0, 0, 0), Opacity of 1 (100%)
     Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -63,10 +90,14 @@ public class GameRenderer {
 
     batcher.begin();
     batcher.disableBlending();
-    batcher.draw(AssetLoader.bg, 0, midPointY + 23, 136, 43);
+    batcher.draw(bg, 0, midPointY + 23, 136, 43);
 
     batcher.enableBlending();
-    batcher.draw(AssetLoader.birdAnimation.getKeyFrame(runTime), bird.getX(), bird.getY(), bird.getWidth(), bird.getHeight());
+    if (bird.shouldntFlap()) {
+      batcher.draw(birdMid, bird.getX(), bird.getY(), bird.getWidth() / 2.0f, bird.getHeight() / 2.0f, bird.getWidth(), bird.getHeight(), 1, 1, bird.getRotation());
+    } else {
+      batcher.draw(birdAnimation.getKeyFrame(runTime), bird.getX(), bird.getY(), bird.getWidth() / 2.0f, bird.getHeight() / 2.0f, bird.getWidth(), bird.getHeight(), 1, 1, bird.getRotation());
+    }
 
     batcher.end();
 
